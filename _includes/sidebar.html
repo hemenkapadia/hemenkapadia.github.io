@@ -1,0 +1,65 @@
+<div class="sidebar">
+  <div class="container {% if site.sidemenutype == 'sticky' %} sidebar-sticky{% endif %}">
+    <div class="sidebar-about">
+      <h1>
+        <a href="{{ site.baseurl }}/">
+          {{ site.title }}
+        </a>
+      </h1>
+      <p class="lead">{{ site.description }}</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item {% if page.title == "Home" %} active{% endif %}" href="{{ site.baseurl }}/">Home</a>
+
+      {% comment %}
+        The code below dynamically generates a sidebar nav of pages with
+        `layout: page` in the front-matter. See readme for usage.
+      {% endcomment %}
+
+      {% assign pages_list = site.pages %}
+      {% for node in pages_list %}
+        {% if node.title != null %}
+          {% if node.layout == "page" %}
+            <a class="sidebar-nav-item {% if page.url == node.url %} active{% endif %}" href="{{ site.baseurl }}{{ node.url }}.html">{{ node.title }}</a>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+    </nav>
+
+    <div class="sidebar-nav-social-container">
+      <p>Follow me</p>
+      <div class="sidebar-nav-social">
+        {% if site.author.email %}
+        <a href="mailto:{{ site.author.email }}" class="sidebar-nav-social-item" title="email" target="_blank"> <i class="fa fa-envelope-square fa-2x"></i> </a>
+        {% endif %}
+        {% if site.author.twitter %}
+        <a href="https://twitter.com/{{ site.author.twitter }}" class="sidebar-nav-social-item" title="twitter" target="_blank"> <i class="fa fa-twitter-square fa-2x"></i> </a>
+        {% endif %}
+        {% if site.author.github %}
+        <a href="https://github.com/{{ site.author.github }}" class="sidebar-nav-social-item" title="github" target="_blank"> <i class="fa fa-github-square fa-2x"></i> </a>
+        {% endif %}
+        {% if site.author.linkedin %}
+        <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" class="sidebar-nav-social-item" title="linkedin" target="_blank"> <i class="fa fa-linkedin-square fa-2x"></i> </a>
+        {% endif %}
+        {% if site.author.facebook %}
+        <a href="https://www.facebook.com/{{ site.author.facebook }}" class="sidebar-nav-social-item" title="facebook" target="_blank"> <i class="fa fa-facebook-square fa-2x"></i> </a>
+        {% endif %}
+        {% if site.author.instagram %}
+        <a href="https://www.instagram.com/{{ site.author.instagram }}" class="sidebar-nav-social-item" title="instagram" target="_blank"> <i class="fa fa-instagram fa-2x"></i> </a>
+        {% endif %}
+        {% if site.author.googleplus %}
+        <a href="https://plus.google.com/{{ site.author.googleplus }}" class="sidebar-nav-social-item" title="google+" target="_blank"> <i class="fa fa-google-plus-square fa-2x"></i> </a>
+        {% endif %}
+        {% if site.author.youtube %}
+        <a href="https://www.youtube.com/user/{{ site.author.youtube }}" class="sidebar-nav-social-item" title="youtube" target="_blank"> <i class="fa fa-youtube-square fa-2x"></i> </a>
+        {% endif %}
+        {% if site.author.stackoverflow %}
+        <a href="http://stackoverflow.com/users/{{ site.author.stackoverflow }}" class="sidebar-nav-social-item" title="stackoverflow" target="_blank"> <i class="fa fa-stack-overflow fa-2x"></i> </a>
+        {% endif %}
+        <a href="{{ site.baseurl}}/atom.xml" class="sidebar-nav-social-item" title="RSS Feed" target="_blank"> <i class="fa fa-rss-square fa-2x"></i> </a>
+      </div>
+    </div>
+  </div>
+</div>
