@@ -61,7 +61,7 @@ detach:                         false
 #baseurl:                       /hydeX
 permalink:                      /blog/:year/:month/:day/:title.html
 paginate_path:                  /page:num
-paginate:                       10
+paginate:                       5
 timezone:                       Asia/Calcutta
 
 quiet:                          false
