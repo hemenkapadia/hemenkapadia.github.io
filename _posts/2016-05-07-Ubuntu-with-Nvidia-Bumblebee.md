@@ -117,7 +117,7 @@ exec gpu-manager --log /var/log/gpu-manager.log
 
 ### Install  Nvidia and Bumblebee ###
 
-* Switch to Virtual Console and disable lightdm `sudo service lightdm stop` (for init) or `sudo systemctl stop lightdm.service` (for systemctl). Everything below will happen in a Virtual Console and not the X terminal.
+* Switch to Virtual Console and disable lightdm `sudo service lightdm stop` (for init) or `sudo systemctl stop lightdm.service` (for systemctl). Everything below will happen in a Virtual Console and not the X terminal. Do not restart the machine unless you complete all the configuration steps mentioned below. Everything should happen in one shot, in a Virtual Console.
 
 * Nvidia-352.63 is the most stable driver i have noticed. Let us see if that is the version that will get installed
 
@@ -142,15 +142,14 @@ Notice the Candidate, which says `nvidia-352.63`, great. Also it is available in
 * Install the required drivers
 
 ```
-sudo apt-get install --no-install-recommends nvidia-361
-sudo apt-get install libcuda1-361 nvidia-opencl-icd-361
+sudo apt-get install --no-install-recommends nvidia-352
+sudo apt-get install libcuda1-352 nvidia-opencl-icd-352
 sudo apt-get install --no-install-recommends bumblebee
 sudo apt-get install bumblebee-nvidia primus
 sudo apt-get install mesa-utils
 sudo apt-get install xserver-xorg-video-intel-lts-wiley
 ```
 
-Do not restart the machine unless you now complete all the configuration steps mentioned below. Everything should happen in one shot, in a Virtual Console.
 
 ### Bumblebee configuration ###
 
@@ -168,10 +167,6 @@ bbswitch
 blacklist nvidia-352
 blacklist nvidia-352-updates
 blacklist nvidia-experimental-352
-#361
-blacklist nvidia-361
-blacklist nvidia-361-updates
-blacklist nvidia-experimental-361
 ```
 
 * Bumblebee configuration
@@ -315,7 +310,15 @@ sudo service bumblebeed start
 
 ### Testing ###
 
+Run the following commands and ensure that you get appropriate response as mentioned here.
+
 ```
+hemen@hemen-Inspiron-7559:~$ sudo service bumblebeed status
+bumblebeed start/running, process 1327
+
+hemen@hemen-Inspiron-7559:~$ cat /proc/acpi/bbswitch
+0000:02:00.0 OFF
+
 hemen@hemen-Inspiron-7559:~$ primusrun glxinfo | grep OpenGL
 OpenGL vendor string: NVIDIA Corporation
 OpenGL renderer string: GeForce GTX 960M/PCIe/SSE2
@@ -329,6 +332,7 @@ OpenGL shading language version string: 4.50 NVIDIA
 OpenGL context flags: (none)
 OpenGL profile mask: (none)
 OpenGL extensions:
+
 hemen@hemen-Inspiron-7559:~$ glxinfo | grep OpenGL
 OpenGL vendor string: Intel Open Source Technology Center
 OpenGL renderer string: Mesa DRI Intel(R) Skylake Halo GT2
@@ -345,4 +349,4 @@ OpenGL extensions:
 
 ### Restart ###
 
-Restart your machine and ensure that X server, GUI as well as glxinfo test as mentioned above is working as expected.
+Restart your machine and ensure that X server, GUI as well as the tests mentioned above are working as expected.
