@@ -2,6 +2,7 @@
 layout: post
 title: Introducing hydeX
 excerpt: Introducing hydeX - the extended version of Hyde, a popular theme for Jekyll.
+comments: true
 ---
 
 hydeX is an extended version of [Hyde](http://hyde.getpoole.com), a brazen two-column theme for [Jekyll](http://jekyllrb.com). hydeX supports all features of Hyde and additionally provides the following enhancements:

@@ -2,6 +2,7 @@
 layout: post
 title: Ubuntu with HighDPI or Retina displays
 excerpt: Recommended configuration changes for Ubuntu to work with HighDPI or Retina displays. Without these changes the high resolution of Retina displays causes text to appear very small.
+comments: true
 ---
 I recently purchased a new laptop, [Dell 7559](http://www.dell.com/us/p/inspiron-15-7559-laptop/pd?oc=dncwpw5724s&model_id=inspiron-15-7559-laptop), and it came with an Ultra HD display also known as a High DPI or Retina display, and I am immensely impressed with it. The display looks good even on Windows, an OS I do not appreciate for its font rendering engine. So I installed Ubuntu on the machine, hoping to get a Mac like experience, but was shocked with the default experience as it did not cater very well to the High DPI display.
 
