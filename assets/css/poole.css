@@ -52,7 +52,7 @@ html {
   font-size: 16px;
   line-height: 1.5;
 }
-@media (min-width: 38em) {
+@media (min-width: 37.95em) {
   html {
     font-size: 20px;
   }
@@ -82,6 +82,7 @@ a:focus {
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
+  font-family: "Oswald", sans-serif;
   font-weight: bold;
   line-height: 1.25;
   color: #313131;
@@ -96,7 +97,7 @@ h2 {
 }
 h3 {
   margin-top: 1.5rem;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 h4, h5, h6 {
   margin-top: 1rem;
@@ -150,11 +151,11 @@ abbr[title] {
 /* Code */
 code,
 pre {
-  font-family: Menlo, Monaco, "Courier New", monospace;
+  font-family: "Inconsolata", monospace;
 }
 code {
   padding: .25em .5em;
-  font-size: 85%;
+  font-size: 0.8rem;
   color: #bf616a;
   background-color: #f9f9f9;
   border-radius: 3px;
@@ -163,7 +164,7 @@ pre {
   display: block;
   margin-top: 0;
   margin-bottom: 1rem;
-  padding: 1rem;
+  padding: .5rem;
   font-size: .8rem;
   line-height: 1.4;
   white-space: pre;
@@ -174,7 +175,7 @@ pre {
 }
 pre code {
   padding: 0;
-  font-size: 80%;
+  font-size: 0.8rem;
   color: inherit;
   background-color: transparent;
 }
@@ -220,7 +221,7 @@ blockquote {
 blockquote p:last-child {
   margin-bottom: 0;
 }
-@media (min-width: 30em) {
+@media (min-width: 29.95rem) {
   blockquote {
     padding-right: 5rem;
     padding-left: 1.25rem;
@@ -328,30 +329,86 @@ tbody tr:nth-child(odd) th {
  * page is wrapped in `.page` and is only used on the page layout.
  */
 
+ .posts-year {
+   font-weight: bolder;
+   font-size: 1.15rem;
+   margin-top: 0.25rem;
+   margin-bottom: 0.25rem;
+ }
+
 .page,
 .post {
-  margin-bottom: 4em;
-  font-size: 16px;
+  margin-bottom: .25rem;
+  font-size: 0.8rem;
 }
+
 
 /* Blog post or page title */
 .page-title,
 .post-title,
-.post-title a {
+.post-list-item a {
   color: #303030;
 }
 .page-title,
 .post-title {
+  font-family: "Oswald", sans-serif;
+  margin-top: 0;
+}
+.post-title-in-post {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.25rem;
   margin-top: 0;
 }
 
 /* Meta data line below post title */
 .post-date {
   display: block;
-  margin-top: -.5rem;
-  margin-bottom: 1rem;
+  /* margin-top: -.5rem; */
+  /* margin-bottom: 1rem; */
+  font-family: "Oswald", sans-serif;
+  font-weight: lighter;
+  font-size: 0.75rem;
   color: #9a9a9a;
 }
+.post-date-in-post {
+  font-family: "Oswald", sans-serif;
+  margin-bottom: 0.15rem;
+}
+
+/* Post List on home page */
+.post-list {
+  font-family: "Oswald", sans-serif;
+}
+.post-list-item{
+  margin-bottom: 0.1rem;
+}
+
+.post-list-year {
+  display: block;
+  font-size: 1.2rem;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #9a9a9a;
+  margin-bottom: 0.25rem;
+  margin-top: 3rem;
+}
+.first{
+  margin-top: 0 !important;
+}
+
+.post-list-date {
+  display: block;
+  font-size: 0.8rem;
+  color: #9a9a9a;
+}
+
+@media (min-width: 29.8em) {
+  .post-list-date {
+    display: inline-block;
+    float: right;
+  }
+}
+
 
 /* Related posts */
 .related,
@@ -391,7 +448,8 @@ tbody tr:nth-child(odd) th {
   overflow: hidden; /* clearfix */
   margin-left: -1rem;
   margin-right: -1rem;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  margin-top: 2rem;
+  font-family: "Oswald", sans-serif;
   color: #ccc;
   text-align: center;
   padding-left:  1rem;
@@ -411,6 +469,11 @@ tbody tr:nth-child(odd) th {
   margin-bottom: -1px;
   text-align: right;
 }
+a.pagination-item,
+a.pagination-item {
+  color: #303030;
+}
+
 
 /* Only provide a hover state for linked pagination items */
 /*
@@ -419,7 +482,7 @@ a.pagination-item:hover {
 }
 */
 
-@media (min-width: 30em) {
+@media (min-width: 28.95em) {
   .pagination {
     margin: 3rem 0;
     padding-left:  0rem;

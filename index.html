@@ -3,33 +3,36 @@ layout: default
 title: Home
 ---
 
-<div class="posts">
+<div class="post-list">
   {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ site.baseurl}}{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h1>
+    {% capture thisYear %}{{ post.date | date: "%Y"}}{% endcapture %}
+    {% capture nextYear %}{{ post.previous.date | date: "%Y"}}{% endcapture %}
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-
-    {{ post.excerpt }}
-  </div>
+    {% if forloop.first %}
+      <div class="post-list-year first">{{thisYear}}</div>
+    {% endif %}
+    <div class="post-list-item">
+      <span class="post-list-date">{{ post.date | date_to_string }}</span>
+      <a class="post-list-title" href="{{ site.baseurl }}/{{ post.url }}">{{ post.title | strip}}</a>
+    </div>
+    {% if thisYear != nextYear and nextYear != "" %}
+      <div class="post-list-year">{{nextYear}}</div>
+    {% endif %}
   {% endfor %}
 </div>
+
 
 <!-- Pagination links -->
 <div class="pagination">
   {% if paginator.previous_page %}
-    <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="pagination-item newer">Newer Posts</a>
+    <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="pagination-item">Newer</a>
   {% else %}
-    <span class="pagination-item newer">Newer Posts</span>
+    <span class="pagination-item newer">Newer</span>
   {% endif %}
-  <span class="pagination-item page_number">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  <span class="pagination-item page_number"> {{ paginator.page }} of {{ paginator.total_pages }}</span>
   {% if paginator.next_page %}
-    <a href="{{ site.baseurl }}{{ paginator.next_page_path }}" class="pagination-item older">Older Posts</a>
+    <a href="{{ site.baseurl }}{{ paginator.next_page_path }}" class="pagination-item">Older</a>
   {% else %}
-    <span class="pagination-item older">Older Posts</span>
+    <span class="pagination-item older">Older</span
   {% endif %}
 </div>

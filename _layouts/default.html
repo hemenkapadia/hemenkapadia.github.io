@@ -3,7 +3,7 @@
 
   {% include head.html %}
 
-  <body class="{{ site.theme }} {% if site.layout == 'reverse' %}  layout-reverse {% endif %}">
+  <body class="{{ site.pooletheme }} {% if site.layout == 'reverse' %}  layout-reverse {% endif %}">
 
     {% include sidebar.html %}
 
@@ -13,3 +13,9 @@
 
   </body>
 </html>
+
+<!-- This default template is followed by page.html and post.html.
+     This default template is configured in layout front matter option of these
+     pages.
+     This includes head.html and sidebar.html
+-->
