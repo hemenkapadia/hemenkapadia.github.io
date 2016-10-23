@@ -61,7 +61,7 @@ detach:                         false
 #baseurl:                       /hydeX
 permalink:                      /blog/:year/:month/:day/:title.html
 paginate_path:                  /page:num
-paginate:                       5
+paginate:                       25
 timezone:                       Asia/Calcutta
 
 quiet:                          false
@@ -72,6 +72,7 @@ whitelist:                      []
 gems:                           ["jekyll-sitemap", "jekyll-gist", "jekyll-paginate"]
 
 # Theme configurations
-theme:                          theme-base-00
+pooletheme:                     theme-base-00
 layout:                         normal                        # [normal | reverse]
 sidemenutype:                   nonsticky                     # [nonsticky | sticky]
+showexcerpt:                    false
