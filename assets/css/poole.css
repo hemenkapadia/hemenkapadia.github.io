@@ -372,7 +372,7 @@ tbody tr:nth-child(odd) th {
 }
 .post-date-in-post {
   font-family: "Oswald", sans-serif;
-  margin-bottom: 0.15rem;
+  margin-bottom: 0.5rem;
 }
 
 /* Post List on home page */
