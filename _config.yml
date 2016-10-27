@@ -75,4 +75,4 @@ gems:                           ["jekyll-sitemap", "jekyll-gist", "jekyll-pagina
 pooletheme:                     theme-base-00
 layout:                         normal                        # [normal | reverse]
 sidemenutype:                   nonsticky                     # [nonsticky | sticky]
-showexcerpt:                    false
+showexcerpt:                    true

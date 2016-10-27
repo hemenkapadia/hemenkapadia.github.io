@@ -14,6 +14,9 @@ title: Home
     <div class="post-list-item">
       <span class="post-list-date">{{ post.date | date_to_string }}</span>
       <a class="post-list-title" href="{{ site.baseurl }}{{ post.url }}">{{ post.title | strip}}</a>
+      {% if site.showexcerpt %}
+      <p class="post-list-excerpt">{{ post.excerpt }}</p>
+      {% endif %}
     </div>
     {% if thisYear != nextYear and nextYear != "" %}
       <div class="post-list-year">{{nextYear}}</div>
