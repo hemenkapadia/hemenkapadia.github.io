@@ -3,6 +3,13 @@ layout: post
 title: Nvidia + Bumblebee (Optimus) on Ubuntu
 excerpt: Guide to configure Ubuntu to work with Nvidia drivers + Bumblebee on an Optimus laptop.
 comments: true
+tags:
+  - Nvidia
+  - Bumblebee
+  - Ubuntu
+  - Linux
+  - Optimus
+  - Nvidia Geforce
 ---
 This guide lists the procedure of installing Nvidia proprietary drivers on [Dell 7559](http://www.dell.com/us/p/inspiron-15-7559-laptop/pd?oc=dncwpw5724s&model_id=inspiron-15-7559-laptop) along with Bumblebee to get the benefits of power management provided by the Optimus technology at the same time having the flexibility to use the Nvidia GPU features without requiring to logout/login each time a configuration change is needed.
 
