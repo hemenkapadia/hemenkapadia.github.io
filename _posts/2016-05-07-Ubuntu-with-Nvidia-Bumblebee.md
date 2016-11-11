@@ -11,6 +11,11 @@ tags:
   - Optimus
   - Nvidia Geforce
 ---
+
+> An updated version of this guide is available at [Ubuntu with Nvidia, CUDA and Bumblebee].
+> It is recommended to follow that procedure as it provides ability to upgrade Nvidia drivers using apt-get as well as configure CUDA, which is not handled in the below guide.
+
+
 This guide lists the procedure of installing Nvidia proprietary drivers on [Dell 7559](http://www.dell.com/us/p/inspiron-15-7559-laptop/pd?oc=dncwpw5724s&model_id=inspiron-15-7559-laptop) along with Bumblebee to get the benefits of power management provided by the Optimus technology at the same time having the flexibility to use the Nvidia GPU features without requiring to logout/login each time a configuration change is needed.
 
 This guide is based on the capabilities I desired in my laptop, and much of the choice I made are guided by these principals.
@@ -358,3 +363,7 @@ OpenGL extensions:
 ### Restart ###
 
 Restart your machine and ensure that X server, GUI as well as the tests mentioned above are working as expected.
+
+
+
+[Ubuntu with Nvidia, CUDA and Bumblebee]: {% post_url 2016-11-11-Ubuntu-with-Nvidia-CUDA-Bumblebee %}
