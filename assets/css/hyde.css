@@ -123,6 +123,13 @@ a.sidebar-nav-item:focus {
     display: none;
   }
 }
+
+/* sidebar github-forkme */
+.github-forkme svg{
+  color: #202020;
+}
+
+
 /* Sticky sidebar
  *
  * Add the `sidebar-sticky` class to the sidebar's container to affix it the
@@ -206,7 +213,14 @@ a.sidebar-nav-item:focus {
   background-color: #ac4142;
 }
 .theme-base-08 .content a,
-.theme-base-08 .related-posts li a:hover {
+.theme-base-08 .related-posts li a:hover,
+.theme-base-08 h1,
+.theme-base-08 h2,
+.theme-base-08 h3,
+.theme-base-08 h4,
+.theme-base-08 h5,
+.theme-base-08 h6,
+.theme-base-08 .github-forkme svg {
   color: #ac4142;
 }
 
@@ -215,7 +229,14 @@ a.sidebar-nav-item:focus {
   background-color: #d28445;
 }
 .theme-base-09 .content a,
-.theme-base-09 .related-posts li a:hover {
+.theme-base-09 .related-posts li a:hover,
+.theme-base-09 h1,
+.theme-base-09 h2,
+.theme-base-09 h3,
+.theme-base-09 h4,
+.theme-base-09 h5,
+.theme-base-09 h6,
+.theme-base-09 .github-forkme svg {
   color: #d28445;
 }
 
@@ -224,7 +245,14 @@ a.sidebar-nav-item:focus {
   background-color: #f4bf75;
 }
 .theme-base-0a .content a,
-.theme-base-0a .related-posts li a:hover {
+.theme-base-0a .related-posts li a:hover,
+.theme-base-0a h1,
+.theme-base-0a h2,
+.theme-base-0a h3,
+.theme-base-0a h4,
+.theme-base-0a h5,
+.theme-base-0a h6,
+.theme-base-0a .github-forkme svg {
   color: #f4bf75;
 }
 
@@ -233,7 +261,14 @@ a.sidebar-nav-item:focus {
   background-color: #90a959;
 }
 .theme-base-0b .content a,
-.theme-base-0b .related-posts li a:hover {
+.theme-base-0b .related-posts li a:hover,
+.theme-base-0b h1,
+.theme-base-0b h2,
+.theme-base-0b h3,
+.theme-base-0b h4,
+.theme-base-0b h5,
+.theme-base-0b h6,
+.theme-base-0b .github-forkme svg {
   color: #90a959;
 }
 
@@ -242,7 +277,14 @@ a.sidebar-nav-item:focus {
   background-color: #75b5aa;
 }
 .theme-base-0c .content a,
-.theme-base-0c .related-posts li a:hover {
+.theme-base-0c .related-posts li a:hover,
+.theme-base-0c h1,
+.theme-base-0c h2,
+.theme-base-0c h3,
+.theme-base-0c h4,
+.theme-base-0c h5,
+.theme-base-0c h6,
+.theme-base-0c .github-forkme svg {
   color: #75b5aa;
 }
 
@@ -251,7 +293,14 @@ a.sidebar-nav-item:focus {
   background-color: #6a9fb5;
 }
 .theme-base-0d .content a,
-.theme-base-0d .related-posts li a:hover {
+.theme-base-0d .related-posts li a:hover,
+.theme-base-0d h1,
+.theme-base-0d h2,
+.theme-base-0d h3,
+.theme-base-0d h4,
+.theme-base-0d h5,
+.theme-base-0d h6,
+.theme-base-0d .github-forkme svg {
   color: #6a9fb5;
 }
 
@@ -260,7 +309,14 @@ a.sidebar-nav-item:focus {
   background-color: #aa759f;
 }
 .theme-base-0e .content a,
-.theme-base-0e .related-posts li a:hover {
+.theme-base-0e .related-posts li a:hover,
+.theme-base-0e h1,
+.theme-base-0e h2,
+.theme-base-0e h3,
+.theme-base-0e h4,
+.theme-base-0e h5,
+.theme-base-0e h6,
+.theme-base-0e .github-forkme svg {
   color: #aa759f;
 }
 
@@ -269,6 +325,13 @@ a.sidebar-nav-item:focus {
   background-color: #8f5536;
 }
 .theme-base-0f .content a,
-.theme-base-0f .related-posts li a:hover {
+.theme-base-0f .related-posts li a:hover,
+.theme-base-0f h1,
+.theme-base-0f h2,
+.theme-base-0f h3,
+.theme-base-0f h4,
+.theme-base-0f h5,
+.theme-base-0f h6,
+.theme-base-0f .github-forkme svg {
   color: #8f5536;
 }
