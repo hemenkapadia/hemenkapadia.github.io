@@ -259,7 +259,7 @@ At this step we have ensured that Nvidia and i915 drivers can both coexist in th
 
 Next we install [Bumblebee] to get the ability to power up Nvidia GPU on demand basis. We will also set Intel as the primary display driver and ensure the Nvidia GPU is powered OFF by default.
 
-All steps below need to be performed in Virtual Console, and Xserver should not be running. Perfom all the steps in one shot, till you reach the restart and test step below.
+> All steps below need to be performed in Virtual Console, and Xserver should not be running. Perfom all the steps in one shot, till you reach the restart and test step below.
 
 Switch to virtual console `(Alt + Ctrl + F1)` and stop lightdm.
 
@@ -402,6 +402,7 @@ Section "Screen"
   Option            "IgnoreDisplayDevices" "CRT"
 EndSection
 ```
+
 ### Update alternatives ###
 
 Update alternatives to ensure proper library paths are configured.
@@ -413,9 +414,9 @@ There are 3 choices for the alternative x86_64-linux-gnu_gl_conf (providing /etc
 
   Selection    Path                                       Priority   Status
 ------------------------------------------------------------
-  0            /usr/lib/nvidia-352/ld.so.conf              8604      auto mode
-  1            /usr/lib/nvidia-352-prime/ld.so.conf        8603      manual mode
-  2            /usr/lib/nvidia-352/ld.so.conf              8604      manual mode
+  0            /usr/lib/nvidia-361/ld.so.conf              8604      auto mode
+  1            /usr/lib/nvidia-361-prime/ld.so.conf        8603      manual mode
+  2            /usr/lib/nvidia-361/ld.so.conf              8604      manual mode
 * 3            /usr/lib/x86_64-linux-gnu/mesa/ld.so.conf   500       manual mode
 
 Press enter to keep the current choice[*], or type selection number:
@@ -552,20 +553,12 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-8.0/lib"
 Install CUDA samples in home directory and build the deviceQuery example.
 
 ```
-hemen@hemen-Inspiron-7559:~$ cd /usr/local/cuda-8.0/bin
-hemen@hemen-Inspiron-7559:/usr/local/cuda-8.0/bin$ ./cuda-install-samples-8.0.sh ~
-hemen@hemen-Inspiron-7559:/usr/local/cuda-8.0/bin$ cd ~
-hemen@hemen-Inspiron-7559:~$ cd NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery
-
-hemen@hemen-Inspiron-7559:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery$ make
-/usr/local/cuda-8.0/bin/nvcc -ccbin g++ -I../../common/inc  -m64    -gencode arch=compute_20,code=sm_20 -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_37,code=sm_37 -gencode arch=compute_50,code=sm_50 -gencode arch=compute_52,code=sm_52 -gencode arch=compute_60,code=sm_60 -gencode arch=compute_60,code=compute_60 -o deviceQuery.o -c deviceQuery.cpp
-nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
-/usr/local/cuda-8.0/bin/nvcc -ccbin g++   -m64      -gencode arch=compute_20,code=sm_20 -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_37,code=sm_37 -gencode arch=compute_50,code=sm_50 -gencode arch=compute_52,code=sm_52 -gencode arch=compute_60,code=sm_60 -gencode arch=compute_60,code=compute_60 -o deviceQuery deviceQuery.o
-nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
-mkdir -p ../../bin/x86_64/linux/release
-cp deviceQuery ../../bin/x86_64/linux/release
-
-hemen@hemen-Inspiron-7559:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery$ ls -l
+$ cd /usr/local/cuda-8.0/bin
+$ ./cuda-install-samples-8.0.sh ~
+$ cd ~
+$ cd NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery
+$ make
+$ ls -l
 total 628
 -rwxrwxr-x 1 hemen hemen 582882 Oct  5 00:08 deviceQuery
 -rw-r--r-- 1 hemen hemen  12174 Oct  5 00:07 deviceQuery.cpp
@@ -591,23 +584,23 @@ This complete process is outlined below
 Initial State
 
 ```
-hemen@hemen-Inspiron-7559:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery$ lsmod | grep nvidia
-hemen@hemen-Inspiron-7559:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery$ ls -l /dev/nvid*
+$ lsmod | grep nvidia
+$ ls -l /dev/nvid*
 crw-rw-rw- 1 root root 195, 254 Oct  4 23:46 /dev/nvidia-modeset
-hemen@hemen-Inspiron-7559:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery$ cat /proc/acpi/bbswitch
+$ cat /proc/acpi/bbswitch
 0000:02:00.0 OFF
 ```
 
 Power ON Nvidia GPU and load required kernel modules manually
 
 ```
-hemen@hemen-Inspiron-7559:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery$ sudo tee /proc/acpi/bbswitch <<< ON
+$ sudo tee /proc/acpi/bbswitch <<< ON
 ON
-hemen@hemen-Inspiron-7559:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery$ cat /proc/acpi/bbswitch
+$ cat /proc/acpi/bbswitch
 0000:02:00.0 ON
-hemen@hemen-Inspiron-7559:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery$ sudo modprobe nvidia_361
-hemen@hemen-Inspiron-7559:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery$ sudo modprobe nvidia_361_uvm
-hemen@hemen-Inspiron-7559:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery$ lsmod | grep nvidia
+$ sudo modprobe nvidia_361
+$ sudo modprobe nvidia_361_uvm
+$ lsmod | grep nvidia
 nvidia_uvm            729088  0
 nvidia              10223616  1 nvidia_uvm
 drm                   360448  6 i915,drm_kms_helper,nvidia
@@ -616,7 +609,7 @@ drm                   360448  6 i915,drm_kms_helper,nvidia
 Our system is now in a state where we can execute CUDA programs. Optirun is required, or else we get the below error message if not used.
 
 ```
-hemen@hemen-Inspiron-7559:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery$ ./deviceQuery
+$ ./deviceQuery
 ./deviceQuery Starting...
 
  CUDA Device Query (Runtime API) version (CUDART static linking)
@@ -628,7 +621,7 @@ Result = FAIL
 # Notice the difference when using optirun to execute deviceQuery
 
 
-hemen@hemen-Inspiron-7559:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery$ optirun ./deviceQuery
+$ optirun ./deviceQuery
 ./deviceQuery Starting...
 
  CUDA Device Query (Runtime API) version (CUDART static linking)
@@ -675,16 +668,16 @@ Result = PASS
 Once done, unload the modules (in order as shown below) and then power OFF the GPU
 
 ```
-hemen@hemen-Inspiron-7559:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery$ sudo rmmod nvidia_uvm
-hemen@hemen-Inspiron-7559:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery$ sudo rmmod nvidia
-hemen@hemen-Inspiron-7559:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery$ lsmod | grep nvidia
-hemen@hemen-Inspiron-7559:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery$ cat /proc/acpi/bbswitch
+$ sudo rmmod nvidia_uvm
+$ sudo rmmod nvidia
+$ lsmod | grep nvidia
+$ cat /proc/acpi/bbswitch
 0000:02:00.0 ON
-hemen@hemen-Inspiron-7559:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery$ sudo tee /proc/acpi/bbswitch <<< OFF
+ sudo tee /proc/acpi/bbswitch <<< OFF
 OFF
-hemen@hemen-Inspiron-7559:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery$ cat /proc/acpi/bbswitch
+$ cat /proc/acpi/bbswitch
 0000:02:00.0 OFF
-hemen@hemen-Inspiron-7559:~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery$
+$
 ```
 
 ### Restart and Test ###
@@ -702,8 +695,9 @@ However we do want to keep our system updated for any security issues and update
 ```
 sudo apt-get update
 sudo apt-get upgrade
+sudo apt-get dist-upgrade
 ```
-I am not sure if I ran a `dist-upgrade`, so not sure if it works or not. If you see the upgrade changing kernel version to v4.4 or higher then there is a possibility that the display will not work post upgrade, so check what packages are being upgraded with `dist-upgrade` before you proceed.
+> If you see the dist-upgrade changing kernel version to anything other than v4.2 then there is a possibility that the display will not work post upgrade, so check which packages are being upgraded with `dist-upgrade` before you proceed.
 
 
 ### That's it ###
