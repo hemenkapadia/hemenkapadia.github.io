@@ -76,3 +76,4 @@ pooletheme:                     theme-base-00
 layout:                         normal              # [normal | reverse]
 sidemenutype:                   nonsticky           # [nonsticky | sticky]
 showexcerpt:                    true
+forkmeribbon:                   show                # [show|hide]

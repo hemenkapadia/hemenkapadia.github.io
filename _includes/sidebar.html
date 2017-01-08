@@ -1,4 +1,5 @@
 <div class="sidebar">
+{% if site.forkmeribbon == "show" %}
   <div class="github-forkme">
     <a href="https://github.com/hemenkapadia/hydeX" class="github-corner" aria-label="View source on Github" target="_blank">
       <svg width="60" height="60" viewBox="0 0 250 250" style="fill:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
@@ -15,6 +16,7 @@
         .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
     </style>
   </div>
+{% endif %}
   <div class="container {% if site.sidemenutype == 'sticky' %} sidebar-sticky{% endif %}">
     <div class="sidebar-about">
       <h1>
