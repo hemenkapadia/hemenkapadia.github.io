@@ -73,6 +73,6 @@ gems:                           ["jekyll-sitemap", "jekyll-gist", "jekyll-pagina
 
 # Theme configurations
 pooletheme:                     theme-base-00
-layout:                         normal                        # [normal | reverse]
-sidemenutype:                   nonsticky                     # [nonsticky | sticky]
+layout:                         normal              # [normal | reverse]
+sidemenutype:                   nonsticky           # [nonsticky | sticky]
 showexcerpt:                    true
