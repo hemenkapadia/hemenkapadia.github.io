@@ -77,3 +77,4 @@ layout:                         normal              # [normal | reverse]
 sidemenutype:                   nonsticky           # [nonsticky | sticky]
 showexcerpt:                    true
 forkmeribbon:                   show                # [show|hide]
+rel_post_count:                 3
