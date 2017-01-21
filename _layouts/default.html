@@ -11,13 +11,14 @@
       {{ content }}
     </div>
 
-    {% if jekyll.environment == 'production' %}
+    {% if site.ga_enable == true %}
       {% include analytics.html %}
     {% endif %}
+    
   </body>
 </html>
 
-<!-- This default template is followed by page.html and post.html.
+<!-- This default template is referred by page.html and post.html.
      This default template is configured in layout front matter option of these
      pages.
      This includes head.html and sidebar.html

@@ -82,3 +82,7 @@ rel_post_count:                 3
 # Comments - Disqus Configuration
 disqus_enable:                  true 
 disqus_src:                     hemenkapadia.disqus.com     # replace this
+
+# Comments - Google Analytics Configuration
+ga_enable:                      true
+ga_id:                          UA-87605512-1          # replace this
