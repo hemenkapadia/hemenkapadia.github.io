@@ -12,4 +12,6 @@ layout: default
 
 {% include related.html %}
 
-{% include comments.html %}
+{% if site.disqus_enable == true %}
+    {% include comments.html %}
+{% endif %}

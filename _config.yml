@@ -78,3 +78,7 @@ sidemenutype:                   nonsticky           # [nonsticky | sticky]
 showexcerpt:                    true
 forkmeribbon:                   show                # [show|hide]
 rel_post_count:                 3
+
+# Comments - Disqus Configuration
+disqus_enable:                  true 
+disqus_src:                     hemenkapadia.disqus.com     # replace this
