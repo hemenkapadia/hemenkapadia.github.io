@@ -76,8 +76,11 @@ pooletheme:                     theme-base-00
 layout:                         normal              # [normal | reverse]
 sidemenutype:                   nonsticky           # [nonsticky | sticky]
 showexcerpt:                    true
-forkmeribbon:                   show                # [show|hide]
 rel_post_count:                 3
+
+# Fork Me Configuration
+forkmeribbon:                   show                # [show|hide]
+forkme_url:                     https://github.com/hemenkapadia/hydeX
 
 # Comments - Disqus Configuration
 disqus_enable:                  true 
