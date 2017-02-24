@@ -712,7 +712,7 @@ So, that it. I spent countless hours figuring this out. Hope this helps you. If 
 [Optimus]: http://www.nvidia.com/object/optimus_technology.html
 [kernel v4.2]: https://wiki.ubuntu.com/TrustyTahr/ReleaseNotes/14.04.4#Updated_Packages
 [LTS 14.04.4]: https://wiki.ubuntu.com/TrustyTahr/ReleaseNotes/14.04.4
-[Download Ubuntu LTS 14.04.4]: http://releases.ubuntu.com/14.04.4/
+[Download Ubuntu LTS 14.04.4]: http://old-releases.ubuntu.com/releases/14.04.4/
 [create a bootable USB]: https://www.ubuntu.com/download/desktop/create-a-usb-stick-on-windows
 [guide to install Windows and Ubuntu in dual boot mode]: http://www.everydaylinuxuser.com/2013/09/install-ubuntu-linux-alongside-windows.html
 [Configuring Ubuntu for HighDPI and Retina displays]: {% post_url 2016-05-06-Configuring-Ubuntu-for-highDPI-and-Retina-displays %}
